@@ -40,12 +40,14 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 # Sprint 1
 * **Sprint içinde tamamlanması tahmin edilen puan:** 100 Puan
 * **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
- * **Daily Scrum:** Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: Sprint 1 Daily Scrum Chats 
+ * **Daily Scrum:** Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: 
+
    
 * **Sprint board update:** Sprint board screenshotları:
 ![Product Backlog](https://github.com/senayildirimm/.../assets/121890601/fffe44aa-5cd5-4788-86ed-2c61744d944c)
-
-
+<p align="center">
+  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/main/Product%20Backlog.png">
+</p>
 
 * **Ürün Durumu:** Ekran görüntüleri:
 <p align="center">
