@@ -52,7 +52,9 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
   <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product1.jpg">
 </p>
 
-
+<p align="center">
+  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product2.jpg">
+</p>
   
 * **Sprint Review:** Alınan kararlar: Ürüne karar verilerek planlama yapılıp, login ekranı yapılmış, sign in ekranı yapılmış ve bazı eksiklikler değerlendirilmiştir.  **Sprint Review Katılımcıları :** Takımın tamamı katılmıştır.
 
