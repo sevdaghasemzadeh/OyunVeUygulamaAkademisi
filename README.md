@@ -44,7 +44,6 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 
    
 * **Sprint board update:** Sprint board screenshotları:
-![Product Backlog](https://github.com/senayildirimm/.../assets/121890601/fffe44aa-5cd5-4788-86ed-2c61744d944c)
 <p align="center">
   <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/main/Product%20Backlog.png">
 </p>
