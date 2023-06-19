@@ -48,9 +48,13 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 
 
 * **Ürün Durumu:** Ekran görüntüleri:
-![Product1](https://github.com/senayildirimm/.../assets/121890601/a8c1c360-fd19-4e00-9ddf-3be1f4c6420f)
+<p align="center">
+  <img width="700" height="1000" src="(https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/9bff926a30a925654b96f1f5484bf42cad1329bb/Product1.jpg)">
+</p>
 
-![Product2](https://github.com/senayildirimm/.../assets/121890601/b6e48032-f1dc-48e5-9bc2-81216950e0e6)
+<p align="center">
+  <img width="700" height="1000" src="(https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/9bff926a30a925654b96f1f5484bf42cad1329bb/Product2.jpg)">
+</p>
 
   
 * **Sprint Review:** Alınan kararlar: Ürüne karar verilerek planlama yapılıp, login ekranı yapılmış, sign in ekranı yapılmış ve bazı eksiklikler değerlendirilmiştir.  **Sprint Review Katılımcıları :** Takımın tamamı katılmıştır.
