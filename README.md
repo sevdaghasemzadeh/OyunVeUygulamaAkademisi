@@ -49,7 +49,7 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 
 * **Ürün Durumu:** Ekran görüntüleri:
 <p align="center">
-  <img width="700" height="1000" src="[(https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/9bff926a30a925654b96f1f5484bf42cad1329bb/Product1.jpg)](https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product1.jpg)">
+  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product1.jpg">
 </p>
 
 
