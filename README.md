@@ -38,16 +38,18 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 * **Profesyonel hesap makinesi kullanıcıları:** Matematik öğretmenleri, mühendisler, muhasebeciler gibi hesap makinesi gerektiren meslek grupları, bu uygulamayı taşınabilir bir seçenek olarak tercih edebilirler.
 
 # Sprint 1
+* **Sprint Notları:** User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında hikayelerin detayları okunabilir.
 * **Sprint içinde tamamlanması tahmin edilen puan:** 100 Puan
 * **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
+* Story'ler yapılacak işlere (task'lere) bölünmüştür. Miro Board'da gözüken kırmızı item'lar yapılacak işleri (task) gösterirken, mavi item'lar story'leri temsil etmektedir.
  * **Daily Scrum:** Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg ve docx olarak Readme'de tarafımızdan paylaşılmaktadır:
   <p align="center">
-  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Sprint 1 Daily Scrum Chats.jpeg">
+  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Sprint 1 Daily Scrum Chats1.jpeg">
 </p>
 
 * **Sprint board update:** Sprint board screenshotları:
 <p align="center">
-  <img width="700" height="800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product%20Backlog.png">
+  <img width="700" height="800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Yeni product backlog.png">
 </p>
 
 
