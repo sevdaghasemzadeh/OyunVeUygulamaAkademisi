@@ -1,7 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:istanbul/pages/RegistrationPage.dart';
 import 'package:istanbul/widgets/widgets.dart';
+
+import '../../helper/helper_function.dart';
+import '../../service/auth_service.dart';
+import '../../service/database_service.dart';
+import '../home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,6 +21,8 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   String email = "";
   String password = "";
+  bool _isLoading = false;
+  AuthService authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(246,153,6,1),
       ),
-      body: SingleChildScrollView(
+      body: _isLoading ? Center(child: CircularProgressIndicator(color: Color.fromRGBO(246,153,6,1)),): SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80 ) ,
           child: Form(
@@ -40,11 +49,11 @@ class _LoginPageState extends State<LoginPage> {
                           borderSide: BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
                           )
                       ),
-                    labelText: "Email",
-                    prefixIcon: Icon(
+                      labelText: "Email",
+                      prefixIcon: Icon(
                         Icons.email,
                         color: Color.fromRGBO(246,153,6,1),
-                    )
+                      )
                   ),
                   onChanged: (val){
                     email = val;
@@ -62,11 +71,11 @@ class _LoginPageState extends State<LoginPage> {
                         borderSide: BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
                         )
                     ),
-                      labelText: "Password",
-                      prefixIcon: Icon(
+                    labelText: "Password",
+                    prefixIcon: Icon(
                         Icons.lock,
                         color: Color.fromRGBO(246,153,6,1)
-                      ),
+                    ),
                   ),
                   validator: (val){
                     if(val!.length<6){
@@ -78,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
 
                 ),
-               const SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 SizedBox(
                   width: double.infinity,
                   child: Padding(
@@ -86,18 +95,18 @@ class _LoginPageState extends State<LoginPage> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(246,153,6,1),
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)
-                        )
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)
+                          )
                       ),
                       child: const Text("Log İn",
-                      style: TextStyle(
-                          color: Color.fromRGBO(49,49,49,1),
-                        fontSize: 16
-                      ),
+                        style: TextStyle(
+                            color: Color.fromRGBO(49,49,49,1),
+                            fontSize: 16
+                        ),
                       ), onPressed: (){
-                        login();
+                      login();
                     },
                     ),
                   ),
@@ -105,22 +114,22 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 10,),
                 Text.rich(TextSpan(
                   text: "Don't have an account?",
-                    style: const TextStyle(
+                  style: const TextStyle(
                       color: Color.fromRGBO(246,153,6,1),
                       fontSize: 14),
                   children:<TextSpan>[
                     TextSpan(
-                      text: " Register Here",
-                      style: const TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.underline
-                      ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        nextScreen(context, const RegistrationPage());
-                      }
+                        text: " Register Here",
+                        style: const TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.underline
+                        ),
+                        recognizer: TapGestureRecognizer()..onTap = () {
+                          nextScreen(context, const RegistrationPage());
+                        }
                     )
                   ],
-                  ),
+                ),
                 )
               ],
             ),
@@ -130,9 +139,35 @@ class _LoginPageState extends State<LoginPage> {
     );
 
   }
-  login(){
-    if (formKey.currentState!.validate()){
+  login() async {
+    if(formKey.currentState!.validate()){
+      setState(() {
+        _isLoading = true;
+      });
+      await authService
+          .loginWithEmailAndPassword(email, password)
+          .then((value) async {
+        if (value == true){
+          QuerySnapshot snapshot =
+          await DatabaseService (uid: FirebaseAuth.instance.currentUser!.uid)
+              .gettingUserData(email);
 
+          //saving the values to our shared prefrences
+          await HelperFunctions.saveUserLoggedinStatus(true);
+          await HelperFunctions.saveUserEmailSF(email);
+          await HelperFunctions.saveUserNameSF(
+              snapshot.docs[0]['fullname']
+          );
+
+
+          nextScreenReplace(context, const HomePage());
+        } else {
+          showSnackBar(context, Colors.red, value);
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      });
     }
   }
 }
