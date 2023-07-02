@@ -97,10 +97,18 @@ https://miro.com/app/board/uXjVM9s_u0s=/?share_link_id=114702148702
 </p>
 
 
+<p align="center">
+  <img width="700" height=800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product4.jpg">
+</p>
+
+ <p align="center">
+  <img width="700" height=800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product5.jpg">
+</p>
+
  
 * **Sprint Review:** Alınan kararlar: Firebase bağlantısı yapıldı. Hesap makinesi tuşlarının dizaynının kodlanması yapıldı. Basit işlemler kodlaması eklendi. String ifade float olarak kodlandı. Hesap makinesi için daha özel gelişmiş fonksiyonlar eklendi, logaritmik ve üst alma fonksiyonlar eklendi. Drawer eklenmesine karar verilip eklendi. **Sprint Review Katılımcıları :** Takımın tamamı katılmıştır.
 
-* Sprint Retrospective:
+* **Sprint Retrospective:**
   * Takım üyelerinin gelecek sprintlerde daha aktif olması gerektiği ortak fikrine varılmıştır.
   * İki değişkenli denklem çözümü eklenmesine karar verildi.
   * Geçmiş işlemleri kaydının tutulmasına karar verildi.
