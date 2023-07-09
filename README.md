@@ -72,3 +72,47 @@ Hesap Makinesi uygulaması, kullanıcı dostu arayüzüyle hızlı ve doğru mat
 
  # Product Backlog URL
 https://miro.com/app/board/uXjVM9s_u0s=/?share_link_id=114702148702 
+
+
+# Sprint 2 
+**Sprint içinde tamamlanması tahmin edilen puan:** 50 Puan
+* **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ikinci sprint'in 50 ile devam edilmesine karar verildi.
+ * **Daily Scrum:** Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır:
+<p align="center">
+  <img width="700" height="1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Sprint%202%20Daily%20Scrum.jpg">
+</p>
+
+
+* **Sprint board update:** Sprint board screenshotları:
+<p align="center">
+  <img width="1100" height="750" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Sprint%202%20Product%20backlog.png">
+</p>
+
+
+
+* **Ürün Durumu:** Ekran görüntüleri:
+
+<p align="center">
+  <img width="700" height=1000" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product3.jpg">
+</p>
+
+
+<p align="center">
+  <img width="700" height=800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product4.jpg">
+</p>
+
+ <p align="center">
+  <img width="700" height=800" src="https://github.com/senayildirimm/OyunVeUygulamaAkademisi/blob/main/Product5.jpg">
+</p>
+
+ 
+* **Sprint Review:** Alınan kararlar: Firebase bağlantısı yapıldı. Hesap makinesi tuşlarının dizaynının kodlanması yapıldı. Basit işlemler kodlaması eklendi. String ifade float olarak kodlandı. Hesap makinesi için daha özel gelişmiş fonksiyonlar eklendi, logaritmik ve üst alma fonksiyonlar eklendi. Drawer eklenmesine karar verilip eklendi. **Sprint Review Katılımcıları :** Takımın tamamı katılmıştır.
+
+* **Sprint Retrospective:**
+  * Takım üyelerinin gelecek sprintlerde daha aktif olması gerektiği ortak fikrine varılmıştır.
+  * İki değişkenli denklem çözümü eklenmesine karar verildi.
+  * Geçmiş işlemleri kaydının tutulmasına karar verildi.
+  * Trigonometrik ifadeleri eklenmesine karar verildi.
+    
+# Product Backlog URL
+https://miro.com/app/board/uXjVM9s_u0s=/?share_link_id=114702148702 
