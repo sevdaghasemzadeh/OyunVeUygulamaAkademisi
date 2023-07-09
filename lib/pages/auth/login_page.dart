@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 90),
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: textinputDecoration.copyWith(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
@@ -64,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 15),
                 TextFormField(
+                  style: TextStyle(color: Colors.white),
                   obscureText: true,
                   decoration: textinputDecoration.copyWith(
                     enabledBorder: OutlineInputBorder(

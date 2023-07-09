@@ -47,11 +47,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
                             )
                         ),
                         labelText: "Full Name",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.person,
                           color: Color.fromRGBO(246,153,6,1),
                         )
@@ -73,11 +73,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     decoration: textinputDecoration.copyWith(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
                             )
                         ),
                         labelText: "Email",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.email,
                           color: Color.fromRGBO(246,153,6,1),
                         )
@@ -95,11 +95,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     decoration: textinputDecoration.copyWith(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                          borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
                           )
                       ),
                       labelText: "Password",
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                           Icons.lock,
                           color: Color.fromRGBO(246,153,6,1)
                       ),

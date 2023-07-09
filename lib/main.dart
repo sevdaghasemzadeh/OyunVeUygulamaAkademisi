@@ -29,24 +29,38 @@ class _MyAppState extends State<MyApp> {
   }
 
   getUserLoggedinStatus() async {
-await HelperFunctions.getUserLoggedinStatus().then((value){
-  if(value!=null){
-_isSignedin = value;
-  }
-});
+    await HelperFunctions.getUserLoggedinStatus().then((value){
+        if(value!=null){
+          _isSignedin = value;
+        }
+    });
   }
 
-      @override
-      Widget build(BuildContext context) {
-        return MaterialApp(
-          theme: ThemeData(
-            primaryColor: Constants().primaryColor,
-            scaffoldBackgroundColor: Colors.white
-          ),
-          debugShowCheckedModeBanner: false,
-          home: _isSignedin ? const HomePage () : const LoginPage(),
-        );
-      }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Constants().primaryColor,
+        primarySwatch: color,
+        scaffoldBackgroundColor: Colors.white,
+
+      ),
+      debugShowCheckedModeBanner: false,
+      home: _isSignedin ? const HomePage () : const LoginPage(),
+    );
+  }
 }
 
+MaterialColor color = const MaterialColor(0xFFF69906, {
+  50: Color(0xFFFFF6E0),
+  100: Color(0xFFFFE6B3),
+  200: Color(0xFFFFD180),
+  300: Color(0xFFFFBF4D),
+  400: Color(0xFFFFB536),
+  500: Color(0xFFF69906),
+  600: Color(0xFFCC8005),
+  700: Color(0xFF996003),
+  800: Color(0xFF664002),
+  900: Color(0xFF332001),
+});
 

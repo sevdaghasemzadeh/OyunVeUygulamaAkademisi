@@ -1,7 +1,12 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:istanbul/pages/auth/login_page.dart';
+import 'package:istanbul/pages/equation_solver_page.dart';
+import 'package:istanbul/pages/history_page.dart';
 import '../service/auth_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,15 +18,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   AuthService authService = AuthService();
+  String output = "0";
+  String firebaseOutput = "0";
   double numberInput = 0;
   String operator = "";
-  String output = "0";
   bool isResultShown = false;
 
-  buttonPressed(String numberKey) {
+  void buttonPressed(String numberKey) {
     if (isResultShown) {
       output = "0";
       isResultShown = false;
+    }
+
+    if (numberKey == "trig"){
+
     }
 
     if (numberKey == "AC") {
@@ -40,9 +50,9 @@ class _HomePageState extends State<HomePage> {
       numberInput = 0;
       operator = "";
       isResultShown = true;
-    } else if (numberKey == "x^2") {
+    } else if (numberKey == "log") {
       numberInput = double.parse(output);
-      output = pow(numberInput, 2).toString();
+      output = log(numberInput).toString();
       numberInput = 0;
       operator = "";
       isResultShown = true;
@@ -66,19 +76,34 @@ class _HomePageState extends State<HomePage> {
     } else if (numberKey == "=") {
       switch (operator) {
         case "+":
+          firebaseOutput = "$numberInput + ${double.parse(output)}";
           output = (numberInput + double.parse(output)).toString();
+          firebaseOutput += " = $output";
+          addCalculationToDatabase(firebaseOutput);
           break;
         case "-":
+          firebaseOutput = "$numberInput - ${double.parse(output)}";
           output = (numberInput - double.parse(output)).toString();
+          firebaseOutput += " = $output";
+          addCalculationToDatabase(firebaseOutput);
           break;
         case "*":
+          firebaseOutput = "$numberInput * ${double.parse(output)}";
           output = (numberInput * double.parse(output)).toString();
+          firebaseOutput += " = $output";
+          addCalculationToDatabase(firebaseOutput);
           break;
         case "/":
+          firebaseOutput = "$numberInput / ${double.parse(output)}";
           output = (numberInput / double.parse(output)).toString();
+          firebaseOutput += " = $output";
+          addCalculationToDatabase(firebaseOutput);
           break;
         case "x^n":
+          firebaseOutput = "$numberInput^${double.parse(output)}";
           output = pow(numberInput, double.parse(output)).toString();
+          firebaseOutput += " = $output";
+          addCalculationToDatabase(firebaseOutput);
           break;
       }
 
@@ -94,6 +119,7 @@ class _HomePageState extends State<HomePage> {
       numberInput = 0;
       operator = "";
       isResultShown = true;
+
     } else {
       if (output == "0" || output == "-0") {
         output = numberKey;
@@ -101,21 +127,19 @@ class _HomePageState extends State<HomePage> {
         output += numberKey;
       }
     }
-
     setState(() {});
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        backgroundColor: const Color.fromRGBO(246,153,6, 1),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.white,
               ),
               child: Text('Quick Math'),
             ),
@@ -124,7 +148,23 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 authService.signOut();
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                  return LoginPage();
+                  return const LoginPage();
+                }));
+              },
+            ),
+            ListTile(
+              title: const Text('Calculation History'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const HistoryPage();
+                }));
+              },
+            ),
+            ListTile(
+              title: const Text('Equation Solver'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                  return const EquationSolver();
                 }));
               },
             ),
@@ -145,7 +185,7 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               child: Text(
                 output,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 70,
                     color: Colors.white,
                     fontFamily: "Helvetica"
@@ -153,7 +193,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
               height: 15
           ),
           Row(
@@ -171,7 +211,7 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              iconButton(buttonPressed, "x^2"),
+              iconButton(buttonPressed, "log"),
               iconButton(buttonPressed, "x^n"),
               iconButton(buttonPressed, "√"),
               trigButton(buttonPressed),
@@ -234,32 +274,56 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-class trigButton extends StatelessWidget {
+class trigButton extends StatefulWidget {
   Function buttonPressed;
-  trigButton(this.buttonPressed, {super.key});
+  trigButton(this.buttonPressed, {Key? key}) : super(key: key);
+
+  @override
+  State<trigButton> createState() => _trigButtonState();
+}
+
+class _trigButtonState extends State<trigButton> {
+  bool isHovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return MouseRegion(
+      onEnter: (event) {
+        setState(() {
+          isHovered = true;
+        });
+      },
+      onExit: (event) {
+        setState(() {
+          isHovered = false;
+        });
+      },
+      child: ElevatedButton(
         onPressed: () {
-          buttonPressed("trg");
+          widget.buttonPressed("trig");
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(246,153,6, 1),
-            minimumSize: const Size.fromRadius(40.0),
-            shape: const CircleBorder(),
-            padding: const EdgeInsets.all(20)),
+          backgroundColor: isHovered ? Colors.yellow : const Color.fromRGBO(246, 153, 6, 1),
+          minimumSize: const Size.fromRadius(40.0),
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.all(20),
+        ),
         child: const Text(
-            style:const  TextStyle(
-                fontSize: 20,
-                fontFamily: 'Helvetica'
-            ),
-            "Trig"
-        )
+          'Trig',
+          style: TextStyle(
+            fontSize: 20,
+            fontFamily: 'Helvetica',
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }
+
+
+
+
 
 
 
@@ -284,7 +348,8 @@ class equalButton extends StatelessWidget {
         "=",
         style: TextStyle(
             fontSize: 36,
-            fontFamily: 'Helvetica'
+            fontFamily: 'Helvetica',
+            color: Colors.white
         ),
       ),
     );
@@ -313,6 +378,7 @@ class commaButton extends StatelessWidget {
         style: TextStyle(
           fontSize: 40,
           fontWeight: FontWeight.bold,
+            color: Colors.white
         ),
       ),
     );
@@ -348,7 +414,8 @@ class zeroButton extends StatelessWidget {
             "0",
             style: TextStyle(
                 fontSize: 36,
-                fontFamily: 'Helvetica'
+                fontFamily: 'Helvetica',
+                color: Colors.white
             ),
           ),
         ),
@@ -375,7 +442,8 @@ class addButton extends StatelessWidget {
         child: const Text(
           style: TextStyle(
               fontSize: 40,
-              fontFamily: 'Helvetica'
+              fontFamily: 'Helvetica',
+              color: Colors.white
           ),
           "+",
 
@@ -404,7 +472,9 @@ class substractButton extends StatelessWidget {
         child: const Text(
             style: TextStyle(
                 fontSize: 40,
-                fontFamily: 'Helvetica'
+                fontFamily: 'Helvetica',
+                color: Colors.white
+
             ),
             "-"
         )
@@ -432,7 +502,9 @@ class multiplyButton extends StatelessWidget {
         child: const  Text(
             style: TextStyle(
                 fontSize: 35,
-                fontFamily: 'Helvetica'
+                fontFamily: 'Helvetica',
+                color: Colors.white
+
             ),
             "x"
         )
@@ -460,7 +532,8 @@ class divideButton extends StatelessWidget {
         child: const Text(
             style:const  TextStyle(
                 fontSize: 30,
-                fontFamily: 'Helvetica'
+                fontFamily: 'Helvetica',
+                color: Colors.white
             ),
             "÷"
         )
@@ -532,8 +605,37 @@ class _numberButtonState extends State<numberButton> {
         style: const TextStyle(
           fontSize: 40,
           fontFamily: 'Helvetica',
+          color: Colors.white
         ),
       ),
     );
+  }
+}
+
+void addCalculationToDatabase(calculation) async {
+  String uid = FirebaseAuth.instance.currentUser!.uid;
+
+  DocumentReference userRef = FirebaseFirestore.instance.collection('calculations').doc(uid);
+  DocumentSnapshot userSnapshot = await userRef.get();
+  if (userSnapshot.exists) {
+    Map<String, dynamic>? userData = userSnapshot.data() as Map<String, dynamic>?;
+
+    if (userData != null && userData.containsKey('calculations')) {
+      List<dynamic> calculations = userData['calculations'];
+      calculations.add(calculation);
+      await userRef.update({
+        'calculations': calculations,
+      });
+    } else {
+      List<dynamic> calculations = [calculation];
+      await userRef.set({
+        'calculations': calculations,
+      });
+    }
+  } else {
+    List<dynamic> calculations = [calculation];
+    await userRef.set({
+      'calculations': calculations
+    });
   }
 }
