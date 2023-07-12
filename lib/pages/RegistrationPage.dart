@@ -23,11 +23,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(49,49,49,1),
+      backgroundColor: Color.fromRGBO(211,207,199,1),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(246,153,6,1),
+        backgroundColor: Color.fromRGBO(215,151,94,1),
       ),
-      body: _isLoading? Center(child: CircularProgressIndicator(color: Color.fromRGBO(246,153,6,1))) :
+      body: _isLoading? Center(child: CircularProgressIndicator(color: Color.fromRGBO(215,151,94,1))) :
       SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80 ) ,
@@ -38,22 +38,23 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget> [
                   const Text("Create your account now!",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Color.fromRGBO(246,153,6,1),)
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400, color: Color.fromRGBO(215,151,94,1),)
                     ,),
 
                   const SizedBox(height: 90),
                   TextFormField(
+                    style: TextStyle(color: Color.fromRGBO(116,124,124,1)),
                     decoration: textinputDecoration.copyWith(
 
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(215,151,94,1),
                             )
                         ),
                         labelText: "Full Name",
                         prefixIcon: const Icon(
                           Icons.person,
-                          color: Color.fromRGBO(246,153,6,1),
+                          color: Color.fromRGBO(215,151,94,1),
                         )
                     ),
                     onChanged: (val){
@@ -70,16 +71,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ),
                   const SizedBox(height: 15,),
                   TextFormField(
+                    style: TextStyle(color: Color.fromRGBO(116,124,124,1)),
                     decoration: textinputDecoration.copyWith(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                            borderSide: const BorderSide (width: 3, color: Color.fromRGBO(215,151,94,1),
                             )
                         ),
                         labelText: "Email",
                         prefixIcon: const Icon(
                           Icons.email,
-                          color: Color.fromRGBO(246,153,6,1),
+                          color: Color.fromRGBO(215,151,94,1),
                         )
                     ),
                     onChanged: (val){
@@ -92,16 +94,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   const SizedBox(height: 15),
                   TextFormField(
                     obscureText: true,
+                    style: TextStyle(color: Color.fromRGBO(116,124,124,1)),
                     decoration: textinputDecoration.copyWith(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide (width: 3, color: Color.fromRGBO(246,153,6,1),
+                          borderSide: const BorderSide (width: 3, color: Color.fromRGBO(215,151,94,1),
                           )
                       ),
                       labelText: "Password",
                       prefixIcon: const Icon(
                           Icons.lock,
-                          color: Color.fromRGBO(246,153,6,1)
+                          color: Color.fromRGBO(215,151,94,1)
                       ),
                     ),
                     validator: (val){
@@ -121,13 +124,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       padding: const EdgeInsets.fromLTRB(40, 10, 40, 5),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(246,153,6,1),
+                            primary: Color.fromRGBO(215,151,94,1),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)
                             )
                         ),
-                        child: const Text("Sign İn",
+                        child: const Text("Sign In",
                           style: TextStyle(
                               color: Color.fromRGBO(49,49,49,1),
                               fontSize: 16
@@ -142,13 +145,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   Text.rich(TextSpan(
                     text: "Already have an account?",
                     style: const TextStyle(
-                        color: Color.fromRGBO(246,153,6,1),
+                        color: Color.fromRGBO(215,151,94,1),
                         fontSize: 14),
                     children:<TextSpan>[
                       TextSpan(
                           text: " Log in Now",
                           style: const TextStyle(
-                              color: Colors.white,
+                              color: Color.fromRGBO(77,76,84,1),
                               decoration: TextDecoration.underline
                           ),
                           recognizer: TapGestureRecognizer()..onTap = () {

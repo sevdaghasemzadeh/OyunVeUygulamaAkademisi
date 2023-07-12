@@ -133,15 +133,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        backgroundColor: const Color.fromRGBO(246,153,6, 1),
+        backgroundColor: const Color.fromRGBO(215,151,94,1),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromRGBO(211,207,199,1),
               ),
-              child: Text('Quick Math'),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(80, 50, 50, 60),
+                child: Text('Quick Math', style: TextStyle(fontStyle: FontStyle.italic,) ),
+              ),
             ),
             ListTile(
               title: const Text('Log Out'),
@@ -171,7 +174,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromRGBO(211,207,199,1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
@@ -303,7 +306,7 @@ class _trigButtonState extends State<trigButton> {
           widget.buttonPressed("trig");
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: isHovered ? Colors.yellow : const Color.fromRGBO(246, 153, 6, 1),
+          backgroundColor: isHovered ? Colors.yellow : const Color.fromRGBO(215,151,94,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20),
@@ -337,7 +340,7 @@ class equalButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(246,153,6, 1),
+          backgroundColor: const Color.fromRGBO(215,151,94,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),
@@ -369,7 +372,7 @@ class commaButton extends StatelessWidget {
         buttonPressed(".");
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),
@@ -398,7 +401,7 @@ class zeroButton extends StatelessWidget {
       height: 80,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
@@ -435,7 +438,7 @@ class addButton extends StatelessWidget {
           buttonPressed("+");
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(246,153,6, 1),
+            backgroundColor: const Color.fromRGBO(215,151,94,1),
             minimumSize: const Size.fromRadius(40.0),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(20)),
@@ -465,7 +468,7 @@ class substractButton extends StatelessWidget {
           buttonPressed("-");
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(246,153,6, 1),
+            backgroundColor: const Color.fromRGBO(215,151,94,1),
             minimumSize: const Size.fromRadius(40.0),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(20)),
@@ -495,7 +498,7 @@ class multiplyButton extends StatelessWidget {
           buttonPressed("*");
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(246,153,6, 1),
+            backgroundColor: const Color.fromRGBO(215,151,94,1),
             minimumSize: const Size.fromRadius(40.0),
             shape: const CircleBorder(),
             padding:const  EdgeInsets.all(20)),
@@ -525,7 +528,7 @@ class divideButton extends StatelessWidget {
           buttonPressed("/");
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromRGBO(246,153,6, 1),
+            backgroundColor: const Color.fromRGBO(215,151,94,1),
             minimumSize: const Size.fromRadius(40.0),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(20)),
@@ -563,7 +566,7 @@ class _iconButtonState extends State<iconButton> {
         widget.buttonPressed(widget.iconName);
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(159,159,159, 1),
+          backgroundColor: const Color.fromRGBO(250,248,245, 1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),
@@ -596,7 +599,7 @@ class _numberButtonState extends State<numberButton> {
         widget.buttonPressed(widget.numberKey);
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),

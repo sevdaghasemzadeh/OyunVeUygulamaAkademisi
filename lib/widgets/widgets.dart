@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 const textinputDecoration = InputDecoration(
 
 
-  labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.w300),
+  labelStyle: TextStyle(color:  Color.fromRGBO(116,124,124,1), fontWeight: FontWeight.w300),
   focusedBorder: OutlineInputBorder(
 
-    borderSide: BorderSide(color: Colors.white38, width: 2 ),
+    borderSide: BorderSide( color: Color.fromRGBO(116,124,124,1), width: 2 ),
 
 
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Color.fromRGBO(246,153,6,1), width: 2 ),
+    borderSide: BorderSide(color: Color.fromRGBO(215,151,94,1), width: 2 ),
   ),
   errorBorder: OutlineInputBorder(
     borderSide: BorderSide(color: Colors.red, width: 2 ),
@@ -34,6 +34,6 @@ void showSnackBar(context, color, message){
     ),
     backgroundColor: color,
     duration: const Duration(seconds: 2),
-    action: SnackBarAction(label: "OK", onPressed: (){}, textColor: Colors.white,),
+    action: SnackBarAction(label: "OK", onPressed: (){}, textColor:  Color.fromRGBO(116,124,124,1),),
   ));
 }

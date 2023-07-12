@@ -18,19 +18,23 @@ class _HistoryPageState extends State<HistoryPage> {
       future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return CircularProgressIndicator(
+            color:  Color.fromRGBO(77,76,84,1),
+          );
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
           List<dynamic> dataList = snapshot.data!;
           return Scaffold(
-            backgroundColor: const Color.fromRGBO(159,159,159, 1),
-            appBar: AppBar(),
+            backgroundColor: const Color.fromRGBO(211,207,199,1),
+            appBar: AppBar(
+              backgroundColor: Color.fromRGBO(215,151,94,1),
+            ),
             body: Center(
               child: ListView.separated(
                 separatorBuilder: (context, index) =>
                 const Divider(
-                  color: Colors.black,
+                  color: Color.fromRGBO(77,76,84,1),
                 ),
                 itemCount: dataList.length,
                 itemBuilder: (context, index) {
@@ -39,7 +43,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     title: Text(
                       data.toString(),
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Color.fromRGBO(77,76,84,1),
                         fontSize: 25,
                       ),
                     ),

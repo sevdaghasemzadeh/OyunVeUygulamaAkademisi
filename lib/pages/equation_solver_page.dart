@@ -61,8 +61,10 @@ class _EquationSolverState extends State<EquationSolver> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(215,151,94,1),
+      ),
+      backgroundColor: Color.fromRGBO(211,207,199,1),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -194,7 +196,7 @@ class _numberButtonState extends State<numberButton> {
         widget.buttonPressed(widget.numberKey);
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),
@@ -223,7 +225,7 @@ class zeroButton extends StatelessWidget {
       height: 80,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
@@ -262,7 +264,7 @@ class commaButton extends StatelessWidget {
         buttonPressed(".");
       },
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(49, 49, 49, 1),
+          backgroundColor: const Color.fromRGBO(116,124,124,1),
           minimumSize: const Size.fromRadius(40.0),
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(20)),
@@ -292,7 +294,7 @@ class submitButton extends StatelessWidget {
       height: 75,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(246,153,6, 1),
+          backgroundColor: const Color.fromRGBO(215,151,94,1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
@@ -330,7 +332,7 @@ class clearButton extends StatelessWidget {
       height: 75,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(246,153,6, 1),
+          backgroundColor: const Color.fromRGBO(215,151,94,1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),
           ),
